@@ -104,7 +104,7 @@ for i=1:4
                dB_lat = borde_lat1(:,3) - borde_lat2(:,3);
  
                dE_lat = sqrt(dB_lat.^2+dA_lat.^2+dL_lat.^2);
-               error_medio_lat = mean(dE_lat(:));
+               error_medio_lat = median(dE_lat(:));
                if error_medio_lat <  menor_error_lat % Si es la de menor error, me quedo con la posición y continúo
                    menor_error_lat = error_medio_lat;
                    mejor_opcion_lat = l;
@@ -128,7 +128,7 @@ for i=1:4
                 dB_infsup = borde_inf(:,:,3) - borde_sup(:,:,3);
  
                 dE_infsup = sqrt(dB_infsup.^2+dA_infsup.^2+dL_infsup.^2);
-                error_medio_infsup = mean(dE_infsup(:));
+                error_medio_infsup = median(dE_infsup(:));
                 if error_medio_infsup < menor_error_infsup
                     menor_error_infsup = error_medio_infsup;
                     mejor_opcion_infsup = n;
@@ -154,7 +154,7 @@ for i=1:4
                 dA_lat = borde_lat1(:,2) - borde_lat2(:,2);
                 dB_lat = borde_lat1(:,3) - borde_lat2(:,3);
                 dE_lat = sqrt(dB_lat.^2+dA_lat.^2+dL_lat.^2);
-                error_lat = mean(dE_lat(:));
+                error_lat = median(dE_lat(:));
  
                 % --- error superior-inferior ---
                 borde_sup = piezas_mezcladas_vector{1,k}(1,:,:);
@@ -162,7 +162,7 @@ for i=1:4
                 dA_infsup = borde_inf(:,:,2) - borde_sup(:,:,2);
                 dB_infsup = borde_inf(:,:,3) - borde_sup(:,:,3);
                 dE_infsup = sqrt(dB_infsup.^2+dA_infsup.^2+dL_infsup.^2);
-                error_infsup = mean(dE_infsup(:));
+                error_infsup = median(dE_infsup(:));
  
                 % --- error combinado ---
                 error_total = error_lat + error_infsup;
